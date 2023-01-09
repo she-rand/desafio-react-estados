@@ -1,31 +1,34 @@
 import { useState } from "react";
 import Button from "./components/Button";
+import Input from "./components/Input";
 
 const App = () => {
     const userCredential={
-        email:"lili@mail.cl",
+        user:"lili@mail.cl",
         password:"qwerty"
     }
     const handleSubmit = (e) => { 
         e.preventDefault();
-        if(!email.trim()&&!password.trim()){
+        if(!user.trim()&&!password.trim()){
             alert("Llene los campos")
         }
-        console.log({email,password})
+        console.log({user,password})
     };
-    const [email, setEmail] = useState("");
+    const handleOnChangeUser = (e) => {
+        setUser(e.target.value);
+        console.log(e.target.value);
+    }
+    const handleOnChangePassword = (e) => {
+        setPassword(e.target.value)
+    }
+    const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input onChange={(e)=>{setEmail(e.target.value)}} type="text" placeholder="email"></input>
-                <input onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder="password"></input>
-                <button type="submit" disabled >Submit</button>
-            </form>
-            {password==="252525"&&(<Button/>)}
+            <Input accionSubmit={handleSubmit} accionUser={handleOnChangeUser} accionPassword={handleOnChangePassword}/>
+            {password==="252525"&&(<Button accionSubmit={handleSubmit}/>)}
             
-            <p>{email}-{password}</p>
         </>
 
     );
