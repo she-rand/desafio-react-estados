@@ -9,8 +9,9 @@ const App = () => {
     }
     const handleSubmit = (e) => { 
         e.preventDefault();
-        if(!user.trim()&&!password.trim()){
+        if(!user.trim()||!password.trim()){
             alert("Llene los campos")
+            return
         }
         if(user===userCredential.user&&password===userCredential.password){
             alert("Bienvenido")
