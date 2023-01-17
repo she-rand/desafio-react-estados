@@ -1,8 +1,14 @@
 const Input=({accionSubmit,accionUser,accionPassword})=>{
     return (
-        <form onSubmit={accionSubmit}>
-        <input onChange={accionUser} type="text" placeholder="email"></input>
-        <input onChange={accionPassword} type="password" placeholder="password"></input>
+        <form className="form-style" onSubmit={accionSubmit}>
+        <div className="input-style">
+            <label for="emailid">Email:</label>
+            <input onChange={accionUser} id="emailid"  type="text" placeholder="email"></input>
+        </div>
+        <div className="input-style">
+            <label for="passwordid">Password:</label>
+            <input onChange={accionPassword}id="passwordid"  type="password" placeholder="password"></input>
+        </div>
         
     </form> 
     )
